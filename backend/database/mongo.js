@@ -6,17 +6,19 @@ let client
 
 function connect(locals) {
 
+    console.log("Logging In")
     const uri = `mongodb+srv://Hloveday99:${process.env.DB_PASSWORD}@cluster0.i2ar2.mongodb.net/demo?retryWrites=true&w=majority`
 
     client = new MongoClient(uri,{useUnifiedTopology: true})
 
     return client.connect()
     .then((connection) => {
+        console.log("Connected")
         // the part after locals. can be whatever you want for the label 
         // named these accordingly to make them easier to located in the file
-        locals.collectionUsers = connection.db('demo').collection('users')
-        locals.collectionCharacters = connection.db('demo').collection('characters')
-        locals.collectionSpells = connection.db('demo').collection('spells')
+        locals.collectionUsers = connection.db(`${process.env.DB_DATABASE}`).collection('users')
+        locals.collectionCharacters = connection.db(`${process.env.DB_DATABASE}`).collection('characters')
+        locals.collectionSpells = connection.db(`${process.env.DB_DATABASE}`).collection('spells')
 
 
     })

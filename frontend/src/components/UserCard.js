@@ -27,7 +27,7 @@ const UserCard = (props) => {
         <Card.Body>
           <Card.Title>{props.user.userName}</Card.Title>
           <Card.Text>
-            motorcycle goes BRRRRRRRRR
+            Other important user information
           </Card.Text>
           <EditUserModal user={props.user} refresh={props.refresh}></EditUserModal>
           <Button variant="primary"onClick={deleteOnClickHandler}>Delete</Button>

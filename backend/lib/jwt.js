@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken")
 require(`dotenv`).config()
+
 /***********************************
 *jwt wrapper functions
 ************************************/
@@ -7,7 +8,7 @@ function signP(payload, options) {
 
     return new Promise ((resolve, reject) => {
 
-        jwt.sign(payload, process.env.JWT_key, options , (err,token) => {
+        jwt.sign(payload, process.env.JWT_KEY, options , (err,token) => {
 
             if (err !== null) {
             reject(err)
@@ -23,7 +24,7 @@ function verifyP(token,options) {
 
     return new Promise ((resolve, reject) => {
 
-        jwt.verify(token, process.env.JWT_key, options, (err, payload) => {
+        jwt.verify(token, process.env.JWT_KEY, options, (err, payload) => {
 
             if (err !== null) {
                 reject(err)
